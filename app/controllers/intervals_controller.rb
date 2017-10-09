@@ -5,7 +5,7 @@ class IntervalsController < ApplicationController
   def create
     file = params[:file]
 
-    lines = CSV.read(file.path)
+    lines = CSV.read file.path
     cons_data = lines.each_cons(30).to_a
 
     sums = Array.new
