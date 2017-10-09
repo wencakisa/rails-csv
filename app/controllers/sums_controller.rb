@@ -3,12 +3,11 @@ require 'csv'
 
 class SumsController < ApplicationController
   def create
-    csv_file = params[:csv_file]
-    row_num = params[:row_num].to_i
+    file = params[:file]
 
-    lines = CSV.read(csv_file.path)
-    result = lines.collect { |row| row[row_num - 1] }.map(&:to_f).reduce(&:+)
+    lines = CSV.read(file.path)
+    result = lines.collect(&:first).map(&:to_f).reduce(&:+)
 
-    render plain: result
+    render plain: '%.2f' % result
   end
 end

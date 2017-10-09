@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CountControllerTest < ActionDispatch::IntegrationTest
+class FiltersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
