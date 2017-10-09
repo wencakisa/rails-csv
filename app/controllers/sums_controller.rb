@@ -1,6 +1,5 @@
 require 'csv'
 
-
 class SumsController < ApplicationController
   def create
     file = params[:file]

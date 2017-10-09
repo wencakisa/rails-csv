@@ -1,6 +1,5 @@
 require 'csv'
 
-
 class FiltersController < ApplicationController
   def create
     file = params[:file]
