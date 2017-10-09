@@ -1,0 +1,2 @@
+class LinRegressionsController < ApplicationController
+end
