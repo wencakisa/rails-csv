@@ -7,6 +7,6 @@ class SumsController < ApplicationController
       result += row.first.to_f
     end
 
-    render plain: '%.2f' % result
+    render plain: '%.2f' % result.ceil(2)
   end
 end
