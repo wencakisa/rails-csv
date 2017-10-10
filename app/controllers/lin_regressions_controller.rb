@@ -3,8 +3,12 @@ require 'linear-regression/linear'
 
 class LinRegressionsController < ApplicationController
   def create
-    y_values = CSV.read(params[:file].path).map(&:first).map(&:to_f)
-    x_values = (1..y_values.size).to_a
+    x_values, y_values = [], []
+    CSV.foreach(params[:file].path).with_index(1) do |row, index|
+      x_values.push index
+      y_values.push row.first.to_f
+    end
+
     reg = Regression::Linear.new x_values, y_values
 
     render plain: '%.6f,%.6f' % [reg.slope, reg.intercept]

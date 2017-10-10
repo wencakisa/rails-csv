@@ -2,7 +2,10 @@ require 'csv'
 
 class FiltersController < ApplicationController
   def create
-    result = CSV.read(params[:file].path).select { |i| i[2].to_i.odd? }.map { |i| i[1].to_f }.reduce(&:+)
+    result = 0
+    CSV.foreach(params[:file].path) do |row|
+      result += row[1].to_f if row[2].to_i.odd?
+    end
 
     render plain: '%.2f' % result
   end
