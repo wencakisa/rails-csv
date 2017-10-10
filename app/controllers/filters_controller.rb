@@ -7,6 +7,6 @@ class FiltersController < ApplicationController
       result += row[1].to_f if row[2].to_i.odd?
     end
 
-    render plain: '%.2f' % result.ceil(2)
+    render plain: '%.2f' % result
   end
 end

@@ -7,6 +7,6 @@ class IntervalsController < ApplicationController
       sums.push chunk.map(&:first).map(&:to_f).reduce(&:+)
     end
 
-    render plain: '%.2f' % sums.max.ceil(2)
+    render plain: '%.2f' % sums.max
   end
 end
